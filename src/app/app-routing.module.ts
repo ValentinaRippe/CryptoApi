@@ -8,7 +8,7 @@ const routes: Routes = [
       import('./modules/home/home.module').then((m) => m.HomeModule)
   },
   {
-    path: 'detail-coin',
+    path: 'detail-coin/:id',
     loadChildren: () =>
       import('./modules/detail-coin/detail-coin.module').then((m) => m.DetailCoinModule)
   },

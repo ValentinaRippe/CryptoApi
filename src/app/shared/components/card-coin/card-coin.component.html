@@ -1,1 +1,19 @@
-<p>card-coin works!</p>
+<div class="flow-root flex items-center justify-center">
+  <ul role="list" class="list  my-2 divide-y divide-gray-200 dark:divide-gray-700">
+      <li routerLink='/detail-coin/{{coin.id}}' routerLinkActive="router-link-active"  class="shadow  py-3 sm:py-4 ">
+          <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                  <img class="w-8 h-8 rounded-full" src='https://assets.coingecko.com/coins/images/4934/large/0_Black-svg.png?1600757954'alt="Neil image">
+              </div>
+              <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                     {{coin.name}}
+                  </p>
+                  <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                      {{coin.symbol}}
+                  </p>
+              </div>
+          </div>
+      </li>
+  </ul>
+</div>

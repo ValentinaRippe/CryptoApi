@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/page/home.component';
 import { DetailCoinComponent } from './modules/detail-coin/page/detail-coin.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { NavbarComponent } from './core/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
