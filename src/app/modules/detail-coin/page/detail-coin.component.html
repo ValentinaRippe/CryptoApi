@@ -1,1 +1,18 @@
-<p>detail-coin works!</p>
+<div class="detail flex items-center justify-around flex-col">
+  <div class="my-6 flex items-center justify-between flex-row">
+    <span class="text-4xl mx-4">{{coin.name}}</span>
+    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+      {{coin.symbol}}
+    </p>
+    <div class="imgCoin">
+      <img class="w-sm" src={{coin.image.large}} alt="">
+    </div>
+  </div>
+  <div>
+    <p>{{coin.price}}</p>
+    <div class="flex items-cente justify-center flex-row">
+      <p class="mx-4">{{coin.coingecko_rank}}</p>/<p class="mx-4">{{coin.coingecko_score}}</p>
+    </div>
+    <article class="text-center my-6">{{coin.decription? coin.decription : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'}}</article>
+  </div>
+</div>

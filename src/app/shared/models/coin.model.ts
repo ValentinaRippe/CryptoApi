@@ -6,5 +6,9 @@ export interface Coin {
     large: string;
     small: string;
     thumb: string;
-  }
+  };
+  price: string;
+  decription: string;
+  coingecko_rank: string;
+  coingecko_score: string;
 }

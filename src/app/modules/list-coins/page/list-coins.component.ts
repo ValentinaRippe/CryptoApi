@@ -18,7 +18,11 @@ export class ListCoinsComponent implements OnInit {
       large: '',
       small: '',
       thumb: ''
-    }
+    },
+    price: '',
+    decription: '',
+    coingecko_rank: '',
+    coingecko_score: ''
   }];
 
   buttonPages = {

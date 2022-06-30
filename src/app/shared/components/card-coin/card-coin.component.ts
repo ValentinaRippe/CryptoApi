@@ -9,11 +9,10 @@ import { Coin } from '../../models/coin.model';
 })
 export class CardCoinComponent implements OnInit {
   @Input() coin!: Coin;
-  constructor(private coinSvc: CoinsService) { }
+  constructor(private coinSvc: CoinsService ) { }
 
   ngOnInit(): void {
     this.coinSvc.getCoin(this.coin.id).subscribe((data:any) => {
-      console.log(data)
       let {image} = data;
       this.coin.image = image;
     }
