@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListCoinsRoutingModule } from './list-coins-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ListCoinsComponent } from './page/list-coins.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -13,7 +14,8 @@ import { ListCoinsComponent } from './page/list-coins.component';
   imports: [
     CommonModule,
     ListCoinsRoutingModule,
-    SharedModule
+    SharedModule,
+    MatIconModule
   ]
 })
 export class ListCoinsModule { }

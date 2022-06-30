@@ -1,6 +1,10 @@
 <div>
   <h1>Crypto wallet</h1>
   <div>
-    <app-card-coin></app-card-coin>
+    <span (click)="prev()"><mat-icon>arrow_back</mat-icon></span>
+    <span (click)="next()"><mat-icon>arrow_forward</mat-icon></span>
+  </div>
+  <div *ngFor="let coin of coins">
+    <app-card-coin [coin]="coin"></app-card-coin>
   </div>
 </div>
