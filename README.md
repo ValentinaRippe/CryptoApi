@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <a href="https://github.com/ValentinaRippe"><img src="https://img.shields.io/badge/angular-red.svg?style=for-the-badge&logo=angular&logoColor=red&labelColor=ffffff" alt="angular"></a>
 </p><br>
 
-Open The crypto's app in your local enviroment or in the [Official Deployment.]()
+Open The crypto's app in your local enviroment or in the [Official Deployment.](https://crypto-app-info.netlify.app/)
 
 ## Modes
 
