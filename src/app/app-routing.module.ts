@@ -16,7 +16,8 @@ const routes: Routes = [
     path: 'list-coins',
     loadChildren: () =>
       import('./modules/list-coins/list-coins.module').then((m) => m.ListCoinsModule)
-  }
+  },
+  { path: '**', redirectTo: '' },
 
 ];
 

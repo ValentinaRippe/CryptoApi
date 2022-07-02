@@ -1,18 +1,46 @@
-<div class="detail flex items-center justify-around flex-col">
-  <div class="my-6 flex items-center justify-between flex-row">
-    <span class="text-4xl mx-4">{{coin.name}}</span>
-    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-      {{coin.symbol}}
-    </p>
-    <div class="imgCoin">
-      <img class="w-sm" src={{coin.image.large}} alt="">
+
+  <div class="detail flex items-center flex-col">
+    <div class="title flex items-center flex-row my-4">
+      <span class="italic flex justify-start flex-col text-3xl w-2/4">
+        <div (click)="back()" class="p-4 text-3xl cursor-pointer">
+          <mat-icon class="mat my-2 rounded-full">arrow_back</mat-icon>
+        </div>
+        <div class="infoTitle shadow flex flex-col text-white text-justify">
+          {{coin.name.substring(0, 18)}}...
+        <p class="text-xl text-gray-500 truncate dark:text-gray-400">
+          {{coin.symbol}}
+        </p>
+        <span>
+          <p class="text-2xl text-white">
+          usd${{coin.market_data.current_price.usd.toFixed(4)}}</p>
+        </span>
+        </div>
+      </span>
+      <div class="imgCoin flex items-center justify-center w-2/4 mx-4">
+        <img src={{coin.image.large}} alt="">
+      </div>
+    </div>
+    <div class="infoCoin shadow text-white bg-blue-900  px-4 py-4">
+      <div class="text-3xl flex items-center justify-center flex-row">
+        <p class="flex items-center justify-center mx-4">
+          <mat-icon> show_chart</mat-icon>{{coin.coingecko_rank}}
+        </p>/
+        <p class="flex items-center justify-center mx-4">
+          <mat-icon>score</mat-icon>{{coin.coingecko_score}}
+        </p>
+      </div>
+      <span *ngIf="coin.market_data.price_change_24h" class="flex items-center justify-center mx-4">price-24h:<p class="px-4" [ngClass]="coin.market_data.price_change_24h<0?'text-red-600':'text-green-600'">
+        ${{coin.market_data.price_change_24h.toFixed(2)}}</p></span>
+      <span  *ngIf="coin.market_data.total_volume.usd" class="flex items-center justify-center mx-4">totalV: <p class="px-4">
+        {{coin.market_data.total_volume.usd}}</p></span>
+      <article [innerHTML]= "coin.description.en?coin.description.en: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'"  class="flex justify-center flex-col text-justify my-6"></article>
+      <div>
+        <span class="flex flex-col" *ngFor="let link of coin.links.homepage">
+          <div class="flex items-center text-center" *ngIf="link">
+            <mat-icon>link</mat-icon> <a class="flex items-center mx-2 text-lg underline-offset-2 underline"
+              href="{{link}}" target="_blank">Homepage</a>
+          </div>
+        </span>
+      </div>
     </div>
   </div>
-  <div>
-    <p>{{coin.price}}</p>
-    <div class="flex items-cente justify-center flex-row">
-      <p class="mx-4">{{coin.coingecko_rank}}</p>/<p class="mx-4">{{coin.coingecko_score}}</p>
-    </div>
-    <article class="text-center my-6">{{coin.decription? coin.decription : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'}}</article>
-  </div>
-</div>
