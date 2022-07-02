@@ -64,7 +64,7 @@ export class ListCoinsComponent implements OnInit {
             setTimeout(() => {
               this.coins.push(infoCoins);
               this.load = false;
-            }, 1000);
+            }, 1500);
           })
         })
     })

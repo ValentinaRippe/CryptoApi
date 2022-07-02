@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs';
 import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class CoinsService {
     },
   });
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   getCoins() {
     return this.http.get(this.api + 'list')
@@ -30,7 +31,9 @@ export class CoinsService {
           text: err.message
         }).then((result) => {
           if (result.isConfirmed) {
-            location.reload()
+            setTimeout(() => {
+              this.router.navigate(['']);
+            }, 1500);
           }
         });
       })
@@ -47,7 +50,9 @@ export class CoinsService {
           text: err.message,
         }).then((result) => {
           if (result.isConfirmed) {
-            location.reload()
+            setTimeout(() => {
+              this.router.navigate(['']);
+            }, 1500);
           }
         });
       })
