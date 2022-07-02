@@ -1,10 +1,31 @@
 # Crypto
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+<img src="https://www.seekpng.com/png/full/29-299942_logo-bitcoin.png" width="300" align='right'>
 
-## Development server
+<p align="center">
+<a href="https://github.com/ValentinaRippe"><img src="https://img.shields.io/badge/angular-red.svg?style=for-the-badge&logo=angular&logoColor=red&labelColor=ffffff" alt="angular"></a>
+</p><br>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Modes
+
+## 1. Home
+
+## 2. List coins
+
+## 3. Detail coin
+
+
+## Installation
+
+Clone project then install dependencies:
+
+```bash
+npm install
+```
+Run project: 
+```bash
+ng server
+```
 
 ## Code scaffolding
 
