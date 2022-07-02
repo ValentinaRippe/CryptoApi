@@ -8,15 +8,40 @@ import { Coin } from '../../models/coin.model';
   styleUrls: ['./card-coin.component.sass']
 })
 export class CardCoinComponent implements OnInit {
-  @Input() coin!: Coin;
-  constructor(private coinSvc: CoinsService ) { }
+  validImg: string = 'https://assets.coingecko.com/coins/images/5720/large/F1nTlw9I_400x400.jpg?1547041588'
+  @Input() coin: Coin = {
+    id: '',
+    name: 'Bitcoin',
+    symbol: 'BTC',
+    image: {
+      large: '',
+      small: '',
+      thumb: ''
+    },
+    market_data: {
+      current_price: {
+        usd: 0
+      },
+      price_change_24h: 0,
+      total_volume: {
+        usd: 0
+      },
+    },
+    description: {
+      en: '',
+    },
+    coingecko_rank: '',
+    coingecko_score: '',
+    links: {
+      homepage: [''],
+      blockchain: ['']
+    }
+  };
+  constructor(private coinSvc: CoinsService) { }
 
   ngOnInit(): void {
-    this.coinSvc.getCoin(this.coin.id).subscribe((data:any) => {
-      let {image} = data;
-      this.coin.image = image;
+    if(this.coin.image.large === undefined) {
+      this.coin.image.large = this.validImg;
     }
-    )
   }
-
 }

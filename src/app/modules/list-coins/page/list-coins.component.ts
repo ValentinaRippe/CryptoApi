@@ -10,6 +10,7 @@ import { Coin } from 'src/app/shared/models/coin.model';
 export class ListCoinsComponent implements OnInit {
 
   constructor(private coinsSvc: CoinsService) { }
+  load: boolean = true;
   coins: Coin[] = [{
     id: '',
     name: 'Bitcoin',
@@ -19,10 +20,24 @@ export class ListCoinsComponent implements OnInit {
       small: '',
       thumb: ''
     },
-    price: '',
-    decription: '',
+    market_data: {
+      current_price: {
+        usd: 0
+      },
+      price_change_24h: 0,
+      total_volume: {
+        usd: 0
+      },
+    },
+    description: {
+      en: '',
+    },
     coingecko_rank: '',
-    coingecko_score: ''
+    coingecko_score: '',
+    links: {
+      homepage: [''],
+      blockchain: ['']
+    }
   }];
 
   buttonPages = {
@@ -36,24 +51,39 @@ export class ListCoinsComponent implements OnInit {
   }
 
   getCoins(cur: number = 0) {
-    this.coinsSvc.getCoins().subscribe((data:any) => {
-      //
-      let infoCoins = data;
-      this.coins = infoCoins.slice( cur, cur + 20)
-    }
-    )
+    this.currentPages === 0 ? this.buttonPages.prev = false : this.buttonPages.prev = true;
+    this.coinsSvc.getCoins().subscribe((data: any) => {
+      let sortCoins = data.sort((a:any, b:any) => {
+        return (a.identifierCompetences > b.identifierCompetences)
+         ? -1 : 1
+      })
+      sortCoins.slice(cur, cur + 10).map(
+        (coin: Coin) => {
+          this.coinsSvc.getCoin(coin.id).subscribe((data: any) => {
+            let infoCoins = data;
+            setTimeout(() => {
+              this.coins.push(infoCoins);
+              this.load = false;
+            }, 1000);
+          })
+        })
+    })
   }
 
   next = () => {
-    this.coins = []
-    this.getCoins( this.currentPages += 20)
+    if (this.coins.length > 1) {
+      this.load = true;
+      this.coins = []
+      this.getCoins(this.currentPages += 20)
+    }
+
   };
 
   prev = () => {
     if (this.currentPages > 0) {
-      this.buttonPages.prev = false
+      this.load = true;
       this.coins = []
-      this.getCoins( this.currentPages -= 20)
+      this.getCoins(this.currentPages -= 20)
     }
   };
 

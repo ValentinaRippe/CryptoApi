@@ -7,8 +7,22 @@ export interface Coin {
     small: string;
     thumb: string;
   };
-  price: string;
-  decription: string;
+  market_data: {
+    current_price:  {
+      usd: number;
+    };
+    price_change_24h: number;
+    total_volume: {
+      usd: number;
+    };
+  }
+  description: {
+    en: string;
+  };
   coingecko_rank: string;
   coingecko_score: string;
+  links: {
+    homepage: [string];
+    blockchain: [string];
+  };
 }
