@@ -50,7 +50,6 @@ export class DetailCoinComponent implements OnInit {
       let { image } = data;
       this.coin = data;
       this.coin.image = image;
-      console.log(data)
     }
     )
   }

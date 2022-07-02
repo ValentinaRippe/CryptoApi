@@ -11,9 +11,7 @@ export class CoinsService {
   private api = environment.api;
   toast = Swal.mixin({
     toast: true,
-    showConfirmButton: false,
-    timer: 1000,
-    timerProgressBar: true,
+    showConfirmButton: true,
     didOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer);
       toast.addEventListener('mouseleave', Swal.resumeTimer);
@@ -30,7 +28,11 @@ export class CoinsService {
           icon: 'error',
           title: 'Api error',
           text: err.message
-        })
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload()
+          }
+        });
       })
     )
   }
@@ -43,7 +45,11 @@ export class CoinsService {
           icon: 'error',
           title: 'Api error',
           text: err.message,
-        })
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload()
+          }
+        });
       })
     )
   }
