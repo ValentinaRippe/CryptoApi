@@ -53,10 +53,7 @@ export class ListCoinsComponent implements OnInit {
   getCoins(cur: number = 0) {
     this.currentPages === 0 ? this.buttonPages.prev = false : this.buttonPages.prev = true;
     this.coinsSvc.getCoins().subscribe((data: any) => {
-      let sortCoins = data.sort((a:any, b:any) => {
-        return (a.identifierCompetences > b.identifierCompetences)
-         ? -1 : 1
-      })
+      let sortCoins = data
       sortCoins.slice(cur, cur + 10).map(
         (coin: Coin) => {
           this.coinsSvc.getCoin(coin.id).subscribe((data: any) => {
